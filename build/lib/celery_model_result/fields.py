@@ -1,4 +1,3 @@
-from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 from celery_model_result.statuses import STATUS_CHOICES, STATUS_NEW
@@ -21,7 +20,7 @@ class TaskStatusField(DefaultInitKwargsMixin, models.PositiveSmallIntegerField):
     }
 
 
-class TaskResultField(DefaultInitKwargsMixin, JSONField):
+class TaskResultField(DefaultInitKwargsMixin, models.JSONField):
     DEFAULT_INIT_KWARGS = {
         'null': True,
         'blank': True,
